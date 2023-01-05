@@ -539,7 +539,7 @@
                 <div class="col-md-12">
                     <!-- Shop Top Area Start -->
                     <div class="shop-top-bar d-flex">
-                        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@mdo" >Create Product</button>
+                        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@mdo" onclick="findAllCategory()">Create Product</button>
                         <!-- Left Side End -->
                         <div class="shop-tab nav">
                             <button class="active" data-bs-target="#shop-grid" data-bs-toggle="tab">
@@ -1683,14 +1683,38 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: black">Create Form</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: black; margin-left: 250px" >Create Form</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="name" class="col-form-label">Name:</label>
+                        <label for="name" class="col-form-label">Name</label>
                         <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="col-form-label">Price</label>
+                        <input type="text" class="form-control" id="price">
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantity" class="col-form-label">Quantity</label>
+                        <input type="text" class="form-control" id="quantity">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="col-form-label">Description</label>
+                        <input type="text" class="form-control" id="description">
+                    </div>
+                    <div class="mb-3">
+                        <label for="discount" class="col-form-label">Discount</label>
+                        <input type="text" class="form-control" id="discount">
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="col-form-label">Image</label>
+                        <input type="file" class="form-control" id="image">
+                    </div>
+                    <div class="mb-3">
+                        <label class="col-form-label">Category</label>
+                        <label class="col-form-label" id="categoryForm">Category</label>
                     </div>
                 </form>
             </div>

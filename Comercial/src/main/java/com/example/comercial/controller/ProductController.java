@@ -1,7 +1,7 @@
 package com.example.comercial.controller;
 
 import com.example.comercial.model.product.Product;
-import com.example.comercial.service.IProductService;
+import com.example.comercial.service.extend.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;

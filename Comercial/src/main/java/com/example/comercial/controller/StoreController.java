@@ -1,14 +1,9 @@
 package com.example.comercial.controller;
 
 import com.example.comercial.model.Store;
-import com.example.comercial.model.product.Product;
-import com.example.comercial.service.IProductService;
-import com.example.comercial.service.IStoreService;
+import com.example.comercial.service.extend.IStoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;

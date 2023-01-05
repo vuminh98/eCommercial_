@@ -1,7 +1,8 @@
-package com.example.comercial.service;
+package com.example.comercial.service.Impl;
 
 import com.example.comercial.model.Store;
 import com.example.comercial.repository.IStoreRepository;
+import com.example.comercial.service.extend.IStoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

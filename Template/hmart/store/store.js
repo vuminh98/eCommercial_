@@ -4,12 +4,12 @@ function displayProduct(product) {
          content += `<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-30px">
              <div class="product">
                <span class="badges">
-                <span class="new">New</span>
+                <span class="new">-${product[i].discount}%</span>
                    </span>
                  <div class="thumb">
                      <a href="../single-product.html" class="image">
-                         <img src="${product[i].img}"/>
-                         <img class="hover-image" src="${product[i].img}" alt=""/>
+                         <img src="${product[i].image}" alt=""/>
+                         <img class="hover-image" src="${product[i].image}" alt=""/>
                      </a>
                  </div>
                  <div class="content">
@@ -75,14 +75,22 @@ function createProduct() {
         category: {
             id: category
         },
-        img : ""
+        image : ""
     }
+
     let formData = new FormData();
-    formData.append("file", $('#file')[0].files[0])
+    formData.append("file", $("#image")[0].files[0])
     formData.append("product", new Blob([JSON.stringify(newProduct)], {type:'application/json'}))
     $.ajax({
+        headers: {
+            // 'Accept': 'application/json',
+            // 'Content-Type': 'application/json',
+            // Authorization: "Bearer " + sessionStorage.getItem("token"),
+        },
+        contentType: false,
+        processData: false,
         type: "POST",
-        url: "http://localhost:8080/product/uploadProduct",
+        url: "http://localhost:8080/uploadProduct",
         data: formData,
         success: function (data) {
             getAllProduct()
@@ -97,6 +105,38 @@ function createProduct() {
     })
     event.preventDefault();
 }
+
+function displayCategory(category) {
+    return `<option value="${category.id}">${category.name}</option>`
+}
+
+function findAllCategory(product) {
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/category",
+        success: function (data) {
+            let content = `<select id="category">`
+            if (product != null) {
+                content += `<option value="${product.category.id}">${product.category.name}</option>`
+                for (let i = 0; i < data.length; i++) {
+                    if (product.category.id !== data[i].id) {
+                        content += displayCategory(data[i])
+                    }
+                }
+                content += `<select>`
+                document.getElementById("categoryUpdate").innerHTML = content;
+            } else {
+                for (let i = 0; i < data.length; i++) {
+                    content += displayCategory(data[i])
+                }
+                content += `<select>`
+                document.getElementById("categoryForm").innerHTML = content;
+            }
+        }
+    });
+}
+
+
 
 
 
