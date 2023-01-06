@@ -33,6 +33,4 @@ public class Product {
     private String image;
     @ManyToOne
     private Category category;
-    @ManyToOne
-    private Review review;
 }
